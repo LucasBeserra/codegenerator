@@ -1,7 +1,7 @@
-import tkinter as tk
+import tkinter
 from tkinter import ttk
 
-class Aplicacao(tk.Tk):
+class Aplicacao(tkinter.Tk):
     def __init__(self):
         super().__init__()
         self.title("Code Generator")
