@@ -1,10 +1,9 @@
 import questionary
 
-from models.BastaoMagnetico import BastaoMagnetico
-from receivers.BastaoGeneratorCode import criar_bastao
-# from GradeSimples import GradeSimples
-# from Placa import PlacaMagnetica
-# from TampaFiltro import TampaFiltro
+from receivers.BastaoCodeGenerator import criar_bastao
+from receivers.GradeCodeGenerator import criar_grade
+from receivers.PlacaCodeGenerator import criar_placa
+from receivers.TampaCodeGenerator import criar_tampa
 
 
 def main():
@@ -25,6 +24,15 @@ def main():
 
         if escolha == "Bastao":
             criar_bastao()
+
+        elif escolha == "Tampa Filtro":
+            criar_tampa()
+
+        elif escolha == "Grade simples":
+            criar_grade()
+
+        elif escolha == "Placa magnética":
+            criar_placa()
 
         elif escolha == "Sair":
             print("Encerrando o programa...")

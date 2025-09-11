@@ -15,21 +15,21 @@ class BastaoMagnetico():
 
         # Mapas de código por campo
         MAP_FECHAMENTO = {
-            "Hermético": "H",
-            "Recravado": "R",
+            "Amarelo": "A",
+            "Vermelho": "V",
         }
 
         MAP_ACABAMENTO = {
-            "Jateado": "J",
-            "Polido": "P",
-            "Escovado": "S"
+            "Verde prateado": "J",
+            "Cinza médio": "P",
+            "Perolado": "S"
         }
 
         MAP_ROSCA = {
-            "M4": "A",
-            "M6": "B",
-            "M8": "C",
-            "Sem Rosca": "E"
+            "Métrica": "A",
+            "Unificada": "B",
+            "Fina": "C",
+            "Extra fina": "D"
         }
 
         MAP_TIPO_ROSCA = {
@@ -39,8 +39,8 @@ class BastaoMagnetico():
         }
 
         MAP_ACOPLAMENTO = {
-            "Tampa filtro": "TM",
-            "Filtro Magnético": "FL"
+            "Marrom": "MR",
+            "Laranja Esférico": "LE"
         }
 
         MAP_ESPECIAL = {
