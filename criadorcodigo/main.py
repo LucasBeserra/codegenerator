@@ -10,9 +10,9 @@ def main():
 
     produtos = [
             "Bastao",
-            "Tampa Filtro",
-            "Grade simples",
-            "Placa magnética",
+            "Filtro",
+            "Grade",
+            "Placa",
             "Sair"
             ]
     

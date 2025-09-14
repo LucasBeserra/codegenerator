@@ -6,10 +6,10 @@ def criar_bastao():
     parametros = []
 
     parametros.append(
-        questionary.select("Fechamento:", choices=["Hermético", "Recravado"]).ask()
+        questionary.select("Fechamento:", choices=["Tipo A", "Tipo B", "Tipo C"]).ask()
     )
     parametros.append(
-        questionary.select("Acabamento:", choices=["Jateado", "Polido", "Escovado"]).ask()
+        questionary.select("Acabamento:", choices=["Amarelo", "Azul", "Vermelho"]).ask()
     )
     parametros.append(
         questionary.select("Diâmetro (mm):", choices=["19", "25", "12"]).ask()
@@ -18,7 +18,7 @@ def criar_bastao():
         input("Comprimento (mm): ")
     )
     parametros.append(
-        questionary.select("Rosca:", choices=["M4", "M6", "M8", "Sem Rosca"]).ask()
+        questionary.select("Rosca:", choices=["M4", "M6", "M8", "M10", "Sem Rosca"]).ask()
     )
     parametros.append(
         questionary.select("Tipo de Rosca:", choices=["Interno", "Externo", "Não se aplica"]).ask()
@@ -27,7 +27,7 @@ def criar_bastao():
         input("Comprimento da rosca (mm): ")
     )
     parametros.append(
-        questionary.select("Acoplamento:", choices=["Filtro Magnético", "Tampa filtro"]).ask()
+        questionary.select("Acoplamento:", choices=["Tipo A", "Tipo B"]).ask()
     )
     parametros.append(
         questionary.select("É especial?", choices=["Sim", "Não"]).ask()
