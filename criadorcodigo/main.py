@@ -1,6 +1,6 @@
 import questionary
 
-from receivers.BastaoCodeGenerator import criar_bastao
+from receivers.BastaoCodeGenerator import form_bastao
 from receivers.GradeCodeGenerator import criar_grade
 from receivers.PlacaCodeGenerator import criar_placa
 from receivers.TampaCodeGenerator import criar_tampa
@@ -22,36 +22,21 @@ def main():
             choices=[*produtos]
         ).ask()
 
-        if escolha == "Bastao":
-            criar_bastao()
+        if escolha == produtos[0]:
+            form_bastao()
 
-        elif escolha == "Tampa Filtro":
+        elif escolha == produtos[1]:
             criar_tampa()
 
-        elif escolha == "Grade simples":
+        elif escolha == produtos[2]:
             criar_grade()
 
-        elif escolha == "Placa magnética":
+        elif escolha == produtos[3]:
             criar_placa()
 
-        elif escolha == "Sair":
+        elif escolha == produtos[4]:
             print("Encerrando o programa...")
             break  # Sai do loop e encerra o programa
 
 if __name__ == "__main__":
     main()
-
-
-
-
-# elif categoria == "Tampa Filtro":
-#     tampaFiltro = TampaFiltro("Tampa de filtro")
-#     tampaFiltro.testeInicial()
-
-# elif categoria == "Grade simples":
-#     gradeSimples = GradeSimples("Grade simples")
-#     gradeSimples.testeInicial()
-
-# elif categoria == "Placa magnética":
-#     placaMag = PlacaMagnetica("Placa magnética")
-#     placaMag.testeInicial()

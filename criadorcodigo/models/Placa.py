@@ -20,7 +20,7 @@ class PlacaMagnetica():
         }
 
         MAP_ACABAMENTO = {
-            "Jateado": "J",
+            "Perolado": "J",
             "Polido": "P",
             "Escovado": "S"
         }

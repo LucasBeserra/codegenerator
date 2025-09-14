@@ -1,7 +1,7 @@
-from models.BastaoMagnetico import BastaoMagnetico
+from models.Bastao import Bastao
 import questionary
 
-def criar_bastao():
+def form_bastao():
     
     parametros = []
 
@@ -20,12 +20,19 @@ def criar_bastao():
     parametros.append(
         questionary.select("Rosca:", choices=["M4", "M6", "M8", "M10", "Sem Rosca"]).ask()
     )
-    parametros.append(
-        questionary.select("Tipo de Rosca:", choices=["Interno", "Externo", "Não se aplica"]).ask()
-    )
-    parametros.append(
-        input("Comprimento da rosca (mm): ")
-    )
+    
+    if parametros[4] == "Sem Rosca":
+        parametros.append("Não se aplica"),
+        parametros.append(""),
+    else:
+        parametros.append(
+            questionary.select("Tipo de Rosca:", choices=["Interno", "Externo"]).ask()
+        )
+
+        parametros.append(
+            input("Comprimento da rosca (mm): ")
+        )
+
     parametros.append(
         questionary.select("Acoplamento:", choices=["Tipo A", "Tipo B"]).ask()
     )
@@ -33,11 +40,10 @@ def criar_bastao():
         questionary.select("É especial?", choices=["Sim", "Não"]).ask()
     )
 
+    def criarCodigo(parametros):
+        return Bastao(*parametros)
 
-    def createBastao(parametros):
-        return BastaoMagnetico(*parametros)
-
-    bastao = createBastao(parametros)
+    bastao = criarCodigo(parametros)
     
     print("\n Código criado com sucesso: " + bastao.codigo)
     input("\nPressione Enter para voltar ao menu...")
