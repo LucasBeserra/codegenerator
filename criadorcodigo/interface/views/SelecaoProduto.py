@@ -46,9 +46,9 @@ class SelecaoProduto:
         # Produtos disponíveis
         self.produtos = {
             "Bastão Magnético": "bastao",
-            "Esfera": "esfera",
-            "Cilindro": "cilindro",
-            "Tubo": "tubo"
+            "Grade Simples": "grade_simples",
+            "Placa Magnética": "placa_magnetica",
+            "Tampa Filtro": "tampa_filtro",
         }
         
         # Dropdown de produtos
@@ -98,12 +98,9 @@ class SelecaoProduto:
         
         if tipo_produto == "bastao":
             self.app.mostrar_formulario_bastao()
-        elif tipo_produto == "esfera":
-            # self.app.mostrar_formulario_esfera()  # Implementar depois
-            pass
-        elif tipo_produto == "cilindro":
-            # self.app.mostrar_formulario_cilindro()  # Implementar depois
-            pass
-        elif tipo_produto == "tubo":
-            # self.app.mostrar_formulario_tubo()  # Implementar depois
-            pass
+        elif tipo_produto == "grade_simples":
+            self.app.mostrar_formulario_grade_simples()
+        elif tipo_produto == "placa_magnetica":
+            self.app.mostrar_formulario_placa_magnetica()
+        elif tipo_produto == "tampa_filtro":
+            self.app.mostrar_formulario_tampa_filtro()

@@ -1,20 +1,13 @@
 import tkinter as tk
-from tkinter import ttk, scrolledtext
-import sys
-import os
+from tkinter import ttk
 
-# Adiciona a pasta pai ao path
-pasta_raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, pasta_raiz)
-
-class Aplicacao:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Gerador de Código - Bastão Magnético")
-        self.root.geometry("800x700")
+class FormularioGradeSimples:
+    def __init__(self, parent, app):
+        self.parent = parent
+        self.app = app
         
         # Frame principal com scroll
-        main_frame = ttk.Frame(root)
+        main_frame = ttk.Frame(parent)
         main_frame.pack(fill=tk.BOTH, expand=1)
         
         # Canvas para scroll
@@ -33,7 +26,7 @@ class Aplicacao:
         canvas.create_window((0, 0), window=frame, anchor="nw")
         
         # Título
-        ttk.Label(frame, text="Gerador de Código - Bastão Magnético", 
+        ttk.Label(frame, text="Gerador de Código - Grade Simples", 
                   font=('Arial', 16, 'bold')).grid(row=0, column=0, columnspan=2, pady=(0, 20))
         
         row = 1
@@ -43,7 +36,7 @@ class Aplicacao:
             row=row, column=0, sticky=tk.W, pady=5)
         self.fechamento_var = tk.StringVar()
         fechamento_combo = ttk.Combobox(frame, textvariable=self.fechamento_var, 
-                                        values=["Tipo A", "Tipo B", "Tipo C"], 
+                                        values=["Hermético", "Recravado"], 
                                         state='readonly', width=47)
         fechamento_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
@@ -53,69 +46,40 @@ class Aplicacao:
             row=row, column=0, sticky=tk.W, pady=5)
         self.acabamento_var = tk.StringVar()
         acabamento_combo = ttk.Combobox(frame, textvariable=self.acabamento_var,
-                                        values=["Amarelo", "Azul", "Vermelho"],
+                                        values=["Jateado", "Polido", "Escovado"],
                                         state='readonly', width=47)
         acabamento_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
         
-        # 3. Diâmetro
-        ttk.Label(frame, text="Diâmetro:", font=('Arial', 10, 'bold')).grid(
+        # 3. Perfil
+        ttk.Label(frame, text="Perfil:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
-        self.diametro_entry = ttk.Entry(frame, width=50)
-        self.diametro_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 10, 20, 30)", font=('Arial', 8), 
-                  foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
-        row += 2
+        self.perfil_var = tk.StringVar()
+        perfil_combo = ttk.Combobox(frame, textvariable=self.perfil_var,
+                                    values=["Quadrada", "Redonda", "Trapezoidal"],
+                                    state='readonly', width=47)
+        perfil_combo.grid(row=row, column=1, pady=5, padx=5)
+        row += 1
         
         # 4. Comprimento
         ttk.Label(frame, text="Comprimento:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.comprimento_entry = ttk.Entry(frame, width=50)
         self.comprimento_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 100, 200, 300)", font=('Arial', 8),
+        ttk.Label(frame, text="(ex: 100, 200, 300)", font=('Arial', 8), 
                   foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
         
-        # 5. Rosca
-        ttk.Label(frame, text="Rosca:", font=('Arial', 10, 'bold')).grid(
+        # 5. Altura
+        ttk.Label(frame, text="Altura:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
-        self.rosca_var = tk.StringVar()
-        rosca_combo = ttk.Combobox(frame, textvariable=self.rosca_var,
-                                   values=["M4", "M6", "M8", "M10", "Sem Rosca"],
-                                   state='readonly', width=47)
-        rosca_combo.grid(row=row, column=1, pady=5, padx=5)
-        row += 1
-        
-        # 6. Tipo de Rosca
-        ttk.Label(frame, text="Tipo de Rosca:", font=('Arial', 10, 'bold')).grid(
-            row=row, column=0, sticky=tk.W, pady=5)
-        self.tipo_rosca_var = tk.StringVar()
-        tipo_rosca_combo = ttk.Combobox(frame, textvariable=self.tipo_rosca_var,
-                                        values=["Interno", "Externo", "Não se aplica"],
-                                        state='readonly', width=47)
-        tipo_rosca_combo.grid(row=row, column=1, pady=5, padx=5)
-        row += 1
-        
-        # 7. Comprimento da Rosca
-        ttk.Label(frame, text="Comprimento Rosca:", font=('Arial', 10, 'bold')).grid(
-            row=row, column=0, sticky=tk.W, pady=5)
-        self.comprimento_rosca_entry = ttk.Entry(frame, width=50)
-        self.comprimento_rosca_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 10, 20, ou deixe vazio se não aplicável)", 
-                  font=('Arial', 8), foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
+        self.altura_entry = ttk.Entry(frame, width=50)
+        self.altura_entry.grid(row=row, column=1, pady=5, padx=5)
+        ttk.Label(frame, text="(ex: 50, 75, 100)", font=('Arial', 8),
+                  foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
         
-        # 8. Acoplamento
-        ttk.Label(frame, text="Acoplamento:", font=('Arial', 10, 'bold')).grid(
-            row=row, column=0, sticky=tk.W, pady=5)
-        self.acoplamento_var = tk.StringVar()
-        acoplamento_combo = ttk.Combobox(frame, textvariable=self.acoplamento_var,
-                                         values=["Tipo A", "Tipo B", "Não se aplica"],
-                                         state='readonly', width=47)
-        acoplamento_combo.grid(row=row, column=1, pady=5, padx=5)
-        row += 1
-        
-        # 9. Especial
+        # 6. Especial
         ttk.Label(frame, text="Especial:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.especial_var = tk.StringVar()
@@ -125,9 +89,18 @@ class Aplicacao:
         especial_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
         
-        # Botão de gerar
-        btn_gerar = ttk.Button(frame, text="Gerar Código", command=self.gerar_codigo)
-        btn_gerar.grid(row=row, column=0, columnspan=2, pady=30)
+        # Frame para os botões
+        frame_botoes = ttk.Frame(frame)
+        frame_botoes.grid(row=row, column=0, columnspan=2, pady=30)
+        
+        # Botão Voltar
+        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
+        btn_voltar.pack(side=tk.LEFT, padx=5)
+        
+        # Botão Gerar
+        btn_gerar = ttk.Button(frame_botoes, text="Gerar Código", command=self.gerar_codigo)
+        btn_gerar.pack(side=tk.LEFT, padx=5)
+        
         row += 1
         
         # Separador
@@ -153,18 +126,19 @@ class Aplicacao:
             borderwidth=2
         )
         self.codigo_text.grid(row=row, column=0, columnspan=2, pady=5)
-        
+    
+    def voltar(self):
+        """Volta para a página de seleção de produto"""
+        self.app.mostrar_selecao_produto()
+    
     def gerar_codigo(self):
         """Função chamada quando o botão é clicado"""
         # Pega os valores dos campos
         fechamento = self.fechamento_var.get()
         acabamento = self.acabamento_var.get()
-        diametro = self.diametro_entry.get().strip()
+        perfil = self.perfil_var.get()
         comprimento = self.comprimento_entry.get().strip()
-        rosca = self.rosca_var.get()
-        tipo_rosca = self.tipo_rosca_var.get()
-        comprimento_rosca = self.comprimento_rosca_entry.get().strip()
-        acoplamento = self.acoplamento_var.get()
+        altura = self.altura_entry.get().strip()
         especial = self.especial_var.get()
         
         # Validação básica
@@ -173,18 +147,12 @@ class Aplicacao:
             campos_vazios.append("Fechamento")
         if not acabamento:
             campos_vazios.append("Acabamento")
-        if not diametro:
-            campos_vazios.append("Diâmetro")
+        if not perfil:
+            campos_vazios.append("Perfil")
         if not comprimento:
             campos_vazios.append("Comprimento")
-        if not rosca:
-            campos_vazios.append("Rosca")
-        if not tipo_rosca:
-            campos_vazios.append("Tipo de Rosca")
-        if not comprimento_rosca:
-            campos_vazios.append("Comprimento Rosca")
-        if not acoplamento:
-            campos_vazios.append("Acoplamento")
+        if not altura:
+            campos_vazios.append("Altura")
         if not especial:
             campos_vazios.append("Especial")
         
@@ -194,24 +162,21 @@ class Aplicacao:
             return
         
         try:
-            # Importa e instancia o modelo Bastao
-            from models.Bastao import Bastao
+            # Importa e instancia o modelo GradeSimples
+            from models.GradeSimples import GradeSimples
             
             # Cria o objeto com os dados do formulário
-            bastao = Bastao(
+            grade = GradeSimples(
                 fechamento=fechamento,
                 acabamento=acabamento,
-                diametro=diametro,
+                perfil=perfil,
                 comprimento=comprimento,
-                rosca=rosca,
-                tipo_rosca=tipo_rosca,
-                comprimento_rosca=comprimento_rosca,
-                acoplamento=acoplamento,
+                altura=altura,
                 especial=especial
             )
             
-            # Pega o código gerado (usa __repr__)
-            codigo_gerado = str(bastao)
+            # Pega o código gerado
+            codigo_gerado = grade.codigo
             
             # Mostra o código no campo
             self.mostrar_codigo(f"✓ Código gerado com sucesso!\n\n{codigo_gerado}")

@@ -48,6 +48,45 @@ class AplicacaoPrincipal:
         
         # Passa referência ao aplicativo para voltar
         formulario = FormularioBastao(self.frame_atual, self)
+    
+    def mostrar_formulario_grade_simples(self):
+        """Exibe o formulário da grade simples"""
+        self.limpar_janela()
+        
+        # Importa a classe do formulário grade simples
+        from views.FormGradeSimples import FormularioGradeSimples
+        
+        self.frame_atual = ttk.Frame(self.root)
+        self.frame_atual.pack(fill=tk.BOTH, expand=1)
+        
+        # Passa referência ao aplicativo para voltar
+        formulario = FormularioGradeSimples(self.frame_atual, self)
+    
+    def mostrar_formulario_placa_magnetica(self):
+        """Exibe o formulário da placa magnética"""
+        self.limpar_janela()
+        
+        # Importa a classe do formulário placa magnética
+        from views.FormPlaca import FormularioPlacaMagnetica
+        
+        self.frame_atual = ttk.Frame(self.root)
+        self.frame_atual.pack(fill=tk.BOTH, expand=1)
+        
+        # Passa referência ao aplicativo para voltar
+        formulario = FormularioPlacaMagnetica(self.frame_atual, self)
+    
+    def mostrar_formulario_tampa_filtro(self):
+        """Exibe o formulário da tampa filtro"""
+        self.limpar_janela()
+        
+        # Importa a classe do formulário tampa filtro
+        from views.FormTampaFiltro import FormularioTampaFiltro
+        
+        self.frame_atual = ttk.Frame(self.root)
+        self.frame_atual.pack(fill=tk.BOTH, expand=1)
+        
+        # Passa referência ao aplicativo para voltar
+        formulario = FormularioTampaFiltro(self.frame_atual, self)
 
 if __name__ == "__main__":
     root = tk.Tk()
