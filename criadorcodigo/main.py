@@ -28,7 +28,7 @@ class AplicacaoPrincipal:
         self.limpar_janela()
         
         # Importa a classe de seleção
-        from views.SelecaoProduto import SelecaoProduto
+        from interface.views.SelecaoProduto import SelecaoProduto
         
         self.frame_atual = ttk.Frame(self.root)
         self.frame_atual.pack(fill=tk.BOTH, expand=1)
@@ -41,7 +41,7 @@ class AplicacaoPrincipal:
         self.limpar_janela()
         
         # Importa a classe do formulário bastão
-        from views.FormBastao import FormularioBastao
+        from interface.views.FormBastao import FormularioBastao
         
         self.frame_atual = ttk.Frame(self.root)
         self.frame_atual.pack(fill=tk.BOTH, expand=1)
@@ -54,7 +54,7 @@ class AplicacaoPrincipal:
         self.limpar_janela()
         
         # Importa a classe do formulário grade simples
-        from views.FormGradeSimples import FormularioGradeSimples
+        from interface.views.FormGradeSimples import FormularioGradeSimples
         
         self.frame_atual = ttk.Frame(self.root)
         self.frame_atual.pack(fill=tk.BOTH, expand=1)
@@ -67,7 +67,7 @@ class AplicacaoPrincipal:
         self.limpar_janela()
         
         # Importa a classe do formulário placa magnética
-        from views.FormPlaca import FormularioPlacaMagnetica
+        from interface.views.FormPlaca import FormularioPlacaMagnetica
         
         self.frame_atual = ttk.Frame(self.root)
         self.frame_atual.pack(fill=tk.BOTH, expand=1)
@@ -80,7 +80,7 @@ class AplicacaoPrincipal:
         self.limpar_janela()
         
         # Importa a classe do formulário tampa filtro
-        from views.FormTampaFiltro import FormularioTampaFiltro
+        from interface.views.FormTampaFiltro import FormularioTampaFiltro
         
         self.frame_atual = ttk.Frame(self.root)
         self.frame_atual.pack(fill=tk.BOTH, expand=1)

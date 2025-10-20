@@ -77,13 +77,13 @@ class SelecaoProduto:
         btn_ok.pack(side=tk.LEFT, padx=10)
         
         # Botão Cancelar
-        btn_cancelar = ttk.Button(
+        btn_sair = ttk.Button(
             frame_botoes,
-            text="Cancelar",
+            text="Sair",
             command=self.app.root.quit,
             width=15
         )
-        btn_cancelar.pack(side=tk.LEFT, padx=10)
+        btn_sair.pack(side=tk.LEFT, padx=10)
     
     def confirmar_produto(self):
         """Confirma a seleção do produto"""
