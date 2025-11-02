@@ -56,7 +56,7 @@ class FormularioBastao:
             row=row, column=0, sticky=tk.W, pady=5)
         self.diametro_entry = ttk.Entry(frame, width=50)
         self.diametro_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 10, 20, 30)", font=('Arial', 8), 
+        ttk.Label(frame, text="(ex: 12.7, 19,05, 25,4)", font=('Arial', 8),
                   foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
         
@@ -94,7 +94,7 @@ class FormularioBastao:
             row=row, column=0, sticky=tk.W, pady=5)
         self.comprimento_rosca_entry = ttk.Entry(frame, width=50)
         self.comprimento_rosca_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 10, 20, ou deixe vazio se não aplicável)", 
+        ttk.Label(frame, text="(ex: 8, 10, 12 ou deixe vazio se não aplicável)", 
                   font=('Arial', 8), foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
         
@@ -122,13 +122,13 @@ class FormularioBastao:
         frame_botoes = ttk.Frame(frame)
         frame_botoes.grid(row=row, column=0, columnspan=2, pady=30)
         
-        # Botão Voltar
-        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
-        btn_voltar.pack(side=tk.LEFT, padx=5)
-        
         # Botão Gerar
         btn_gerar = ttk.Button(frame_botoes, text="Gerar Código", command=self.gerar_codigo)
         btn_gerar.pack(side=tk.LEFT, padx=5)
+
+        # Botão Voltar
+        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
+        btn_voltar.pack(side=tk.LEFT, padx=5)
         
         row += 1
         

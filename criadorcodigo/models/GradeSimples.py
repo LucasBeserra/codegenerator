@@ -1,5 +1,5 @@
 class GradeSimples(): 
-    def __init__(self, fechamento, acabamento, perfil, comprimento, altura, especial):
+    def __init__(self, fechamento, acabamento, perfil, fita, comprimento, altura, especial):
         self.fechamento = fechamento
         self.acabamento = acabamento
         self.perfil = perfil
@@ -9,14 +9,15 @@ class GradeSimples():
 
 
         MAP_FECHAMENTO = {
-            "Hermético": "H",
-            "Recravado": "R",
+            "Tipo A": "A",
+            "Tipo B": "B",
+            "Tipo C": "C",
         }
 
         MAP_ACABAMENTO = {
-            "Jateado": "J",
-            "Polido": "P",
-            "Escovado": "E"
+            "Amarelo": "J",
+            "Azul": "P",
+            "Vermelho": "E"
         }
 
         MAP_PERFIL = {
@@ -25,16 +26,26 @@ class GradeSimples():
             "Trapezoidal": "T"
         }
 
+        MAP_FITA = {
+            "2MM": "A",
+            "3MM": "B",
+            "4,76MM": "C",
+        }
+
         MAP_ESPECIAL = {
             "Sim": "E",
             "Não": ""
         }
 
         self.codigo = (
+            "G" +
             MAP_FECHAMENTO[fechamento] +
             MAP_ACABAMENTO[acabamento] +
-            MAP_ESPECIAL[especial] +
-            MAP_PERFIL[perfil]
+            MAP_PERFIL[perfil] +
+            MAP_FITA[fita] +
+            comprimento +
+            altura +
+            MAP_ESPECIAL[especial]
         )
 
     def testeInicial(self):

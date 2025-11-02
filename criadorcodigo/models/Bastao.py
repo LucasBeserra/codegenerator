@@ -65,8 +65,3 @@ class Bastao():
 
     def testeInicial(self):
         print("Hello, sou um bastão magnético")
-
-
-    def __repr__(self):
-        return self.codigo
-    

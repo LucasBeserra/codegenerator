@@ -36,7 +36,7 @@ class FormularioGradeSimples:
             row=row, column=0, sticky=tk.W, pady=5)
         self.fechamento_var = tk.StringVar()
         fechamento_combo = ttk.Combobox(frame, textvariable=self.fechamento_var, 
-                                        values=["Hermético", "Recravado"], 
+                                        values=["Tipo A", "Tipo B", "Tipo C"],
                                         state='readonly', width=47)
         fechamento_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
@@ -46,7 +46,7 @@ class FormularioGradeSimples:
             row=row, column=0, sticky=tk.W, pady=5)
         self.acabamento_var = tk.StringVar()
         acabamento_combo = ttk.Combobox(frame, textvariable=self.acabamento_var,
-                                        values=["Jateado", "Polido", "Escovado"],
+                                        values=["Amarelo", "Azul", "Vermelho"],
                                         state='readonly', width=47)
         acabamento_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
@@ -57,6 +57,16 @@ class FormularioGradeSimples:
         self.perfil_var = tk.StringVar()
         perfil_combo = ttk.Combobox(frame, textvariable=self.perfil_var,
                                     values=["Quadrada", "Redonda", "Trapezoidal"],
+                                    state='readonly', width=47)
+        perfil_combo.grid(row=row, column=1, pady=5, padx=5)
+        row += 1
+
+        # 4. Perfil
+        ttk.Label(frame, text="Fita:", font=('Arial', 10, 'bold')).grid(
+            row=row, column=0, sticky=tk.W, pady=5)
+        self.fita_var = tk.StringVar()
+        perfil_combo = ttk.Combobox(frame, textvariable=self.fita_var,
+                                    values=["2MM", "3MM", "4,76MM"],
                                     state='readonly', width=47)
         perfil_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
@@ -92,14 +102,14 @@ class FormularioGradeSimples:
         # Frame para os botões
         frame_botoes = ttk.Frame(frame)
         frame_botoes.grid(row=row, column=0, columnspan=2, pady=30)
-        
-        # Botão Voltar
-        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
-        btn_voltar.pack(side=tk.LEFT, padx=5)
-        
+
         # Botão Gerar
         btn_gerar = ttk.Button(frame_botoes, text="Gerar Código", command=self.gerar_codigo)
         btn_gerar.pack(side=tk.LEFT, padx=5)
+
+        # Botão Voltar
+        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
+        btn_voltar.pack(side=tk.LEFT, padx=5)
         
         row += 1
         
@@ -137,6 +147,7 @@ class FormularioGradeSimples:
         fechamento = self.fechamento_var.get()
         acabamento = self.acabamento_var.get()
         perfil = self.perfil_var.get()
+        fita = self.fita_var.get()
         comprimento = self.comprimento_entry.get().strip()
         altura = self.altura_entry.get().strip()
         especial = self.especial_var.get()
@@ -170,6 +181,7 @@ class FormularioGradeSimples:
                 fechamento=fechamento,
                 acabamento=acabamento,
                 perfil=perfil,
+                fita=fita,
                 comprimento=comprimento,
                 altura=altura,
                 especial=especial

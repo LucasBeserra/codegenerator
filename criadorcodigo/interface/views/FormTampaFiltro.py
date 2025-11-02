@@ -92,13 +92,13 @@ class FormularioTampaFiltro:
         frame_botoes = ttk.Frame(frame)
         frame_botoes.grid(row=row, column=0, columnspan=2, pady=30)
         
-        # Botão Voltar
-        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
-        btn_voltar.pack(side=tk.LEFT, padx=5)
-        
         # Botão Gerar
         btn_gerar = ttk.Button(frame_botoes, text="Gerar Código", command=self.gerar_codigo)
         btn_gerar.pack(side=tk.LEFT, padx=5)
+
+        # Botão Voltar
+        btn_voltar = ttk.Button(frame_botoes, text="Voltar", command=self.voltar)
+        btn_voltar.pack(side=tk.LEFT, padx=5)
         
         row += 1
         
