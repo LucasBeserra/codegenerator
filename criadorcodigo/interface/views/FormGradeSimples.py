@@ -61,26 +61,35 @@ class FormularioGradeSimples:
         perfil_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
 
-        # 4. Perfil
+        # 4. Fita
         ttk.Label(frame, text="Fita:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.fita_var = tk.StringVar()
         perfil_combo = ttk.Combobox(frame, textvariable=self.fita_var,
-                                    values=["2MM", "3MM", "4,76MM"],
+                                    values=["2MM", "3MM", "4,76MM", "6,35MM"],
                                     state='readonly', width=47)
         perfil_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 1
         
-        # 4. Comprimento
-        ttk.Label(frame, text="Comprimento:", font=('Arial', 10, 'bold')).grid(
+        # 4. Comprimento / Diâmetro
+        ttk.Label(frame, text="Comprimento/Diâmetro:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.comprimento_entry = ttk.Entry(frame, width=50)
         self.comprimento_entry.grid(row=row, column=1, pady=5, padx=5)
         ttk.Label(frame, text="(ex: 100, 200, 300)", font=('Arial', 8), 
                   foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
+
+        # 5. Largura
+        ttk.Label(frame, text="Largura:", font=('Arial', 10, 'bold')).grid(
+            row=row, column=0, sticky=tk.W, pady=5)
+        self.largura_entry = ttk.Entry(frame, width=50)
+        self.largura_entry.grid(row=row, column=1, pady=5, padx=5)
+        ttk.Label(frame, text="(obs: Se o perfil for redondo, deixe em branco)", font=('Arial', 8), 
+                  foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
+        row += 2
         
-        # 5. Altura
+        # 6. Altura
         ttk.Label(frame, text="Altura:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.altura_entry = ttk.Entry(frame, width=50)
@@ -89,7 +98,7 @@ class FormularioGradeSimples:
                   foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
         row += 2
         
-        # 6. Especial
+        # 7. Especial
         ttk.Label(frame, text="Especial:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
         self.especial_var = tk.StringVar()
@@ -149,6 +158,7 @@ class FormularioGradeSimples:
         perfil = self.perfil_var.get()
         fita = self.fita_var.get()
         comprimento = self.comprimento_entry.get().strip()
+        largura = self.largura_entry.get().strip()
         altura = self.altura_entry.get().strip()
         especial = self.especial_var.get()
         
@@ -183,6 +193,7 @@ class FormularioGradeSimples:
                 perfil=perfil,
                 fita=fita,
                 comprimento=comprimento,
+                largura=largura,
                 altura=altura,
                 especial=especial
             )

@@ -1,5 +1,5 @@
 class GradeSimples(): 
-    def __init__(self, fechamento, acabamento, perfil, fita, comprimento, altura, especial):
+    def __init__(self, fechamento, acabamento, perfil, fita, comprimento, largura, altura, especial):
         self.fechamento = fechamento
         self.acabamento = acabamento
         self.perfil = perfil
@@ -30,6 +30,7 @@ class GradeSimples():
             "2MM": "A",
             "3MM": "B",
             "4,76MM": "C",
+            "6,35MM": "D"
         }
 
         MAP_ESPECIAL = {
@@ -44,6 +45,7 @@ class GradeSimples():
             MAP_PERFIL[perfil] +
             MAP_FITA[fita] +
             comprimento +
+            largura +
             altura +
             MAP_ESPECIAL[especial]
         )
