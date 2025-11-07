@@ -54,10 +54,11 @@ class FormularioBastao:
         # 3. Diâmetro
         ttk.Label(frame, text="Diâmetro:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
-        self.diametro_entry = ttk.Entry(frame, width=50)
-        self.diametro_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 12.7, 19,05, 25,4)", font=('Arial', 8),
-                  foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
+        self.diametro_var = tk.StringVar()
+        diametro_combo = ttk.Combobox(frame, textvariable=self.diametro_var,
+                                        values=["12,7", "19,05", "25,4"],
+                                        state='readonly', width=47)
+        diametro_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 2
         
         # 4. Comprimento
@@ -92,10 +93,11 @@ class FormularioBastao:
         # 7. Comprimento da Rosca
         ttk.Label(frame, text="Comprimento Rosca:", font=('Arial', 10, 'bold')).grid(
             row=row, column=0, sticky=tk.W, pady=5)
-        self.comprimento_rosca_entry = ttk.Entry(frame, width=50)
-        self.comprimento_rosca_entry.grid(row=row, column=1, pady=5, padx=5)
-        ttk.Label(frame, text="(ex: 8, 10, 12 ou deixe vazio se não aplicável)", 
-                  font=('Arial', 8), foreground='gray').grid(row=row+1, column=1, sticky=tk.W, padx=5)
+        self.comprimento_rosca_var = tk.StringVar()
+        comprimento_roca_combo = ttk.Combobox(frame, textvariable=self.comprimento_rosca_var,
+                                              values=["8", "12", "15", "Sem Rosca"],
+                                              state='readonly', width=47)
+        comprimento_roca_combo.grid(row=row, column=1, pady=5, padx=5)
         row += 2
         
         # 8. Acoplamento
@@ -165,11 +167,11 @@ class FormularioBastao:
         # Pega os valores dos campos
         fechamento = self.fechamento_var.get()
         acabamento = self.acabamento_var.get()
-        diametro = self.diametro_entry.get().strip()
+        diametro = self.diametro_var.get()
         comprimento = self.comprimento_entry.get().strip()
         rosca = self.rosca_var.get()
         tipo_rosca = self.tipo_rosca_var.get()
-        comprimento_rosca = self.comprimento_rosca_entry.get().strip()
+        comprimento_rosca = self.comprimento_rosca_var.get()
         acoplamento = self.acoplamento_var.get()
         especial = self.especial_var.get()
         

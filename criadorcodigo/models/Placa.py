@@ -40,8 +40,5 @@ class PlacaMagnetica():
             MAP_ESPECIAL[especial]
         )
 
-    def testeInicial(self):
-        print("Hello, sou uma placa magnética")
-
     def __repr__(self):
         return self.codigo

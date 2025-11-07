@@ -26,6 +26,12 @@ class Bastao():
             "Vermelho": "VM",
         }
 
+        MAP_DIAMETRO = {
+            "12,7": "12",
+            "19,05": "19",
+            "25,4": "25"
+        }
+
         MAP_ROSCA = {
             "M4": "A",
             "M6": "B",
@@ -54,7 +60,7 @@ class Bastao():
         self.codigo = (
         MAP_FECHAMENTO[fechamento] +
         MAP_ACABAMENTO[acabamento] +
-        diametro +
+        MAP_DIAMETRO[diametro] +
         comprimento +
         MAP_ROSCA[rosca] +
         MAP_TIPO_ROSCA[tipo_rosca] +
@@ -63,5 +69,5 @@ class Bastao():
         MAP_ESPECIAL[especial]
         )
 
-    def testeInicial(self):
-        print("Hello, sou um bastão magnético")
+    def __repr__(self):
+        return self.codigo

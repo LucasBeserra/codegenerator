@@ -48,6 +48,6 @@ class GradeSimples():
             MAP_ESPECIAL[especial]
         )
 
-    def testeInicial(self):
-        print("Hello, sou uma grade magnética simples")
+    def __repr__(self):
+        return self.codigo
 

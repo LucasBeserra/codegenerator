@@ -29,11 +29,5 @@ class TampaFiltro():
             MAP_ESPECIAL[especial]
         )
 
-    def testeInicial(self):
-        print("Hello, sou uma tampa filtro")
-
-    def __repr__(self):
-        return self.codigo
-
     def __repr__(self):
         return self.codigo
